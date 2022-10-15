@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Morphological Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='brill.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main>
+      <div id="title">Morphological Parser<br>for the C. Urmi Neo-Aramaic Dialect</div>
+      <div id="name">v 0.0.2</div>
+      <div id="input" contenteditable autofocus></div>
+      <div id="log"></div>  
+    </main>
+    <script>
+      const log = result => {
+        data = JSON.parse(result)
+        console.log(data)
+
+        document.querySelector('#log').innerHTML = ''
+
+        data.forEach(element => {
+          document.querySelector('#log').innerHTML += `
+          <div class="result">
+            <div class="word">${element[1]}</div>
+            <div class="morphology">${element[0]}</div>
+          </div>
+        `});
+      };
+
+      const socket = new WebSocket('wss://' + location.host + '/echo');
+      socket.addEventListener('message', e => log(e.data));
+      input = document.querySelector('#input')
+      input.onkeyup = _ => {
+        // e.preventDefault();
+        socket.send(input.textContent);
+      };
+    </script>
+  </body>
+</html>

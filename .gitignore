@@ -1,0 +1,5 @@
+venv
+.vscode
+apertium
+archive
+.ipynb_checkpoints

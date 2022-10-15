@@ -1,0 +1,2 @@
+[ ] having varieties
+[ ] verbs

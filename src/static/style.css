@@ -1,0 +1,74 @@
+:root {
+    font-size: 13pt;
+}
+
+* {
+    font-family: 'Brill';
+    font-variant-numeric: lining-nums;
+}
+
+body {
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+main {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0rem;
+    padding: 5rem 0;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+#title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#name {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+#input {
+    width: 100%;
+    height: 2em;
+    background: #f3f3f3;
+    height: 1em;
+    padding: 1rem;
+    font-style: italic;
+    border-radius: 0.1rem;
+}
+
+#log {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 25rem;
+    overflow-y: scroll;
+    padding: 0.5rem;
+}
+
+[contenteditable]:focus {
+    outline: none;
+}
+
+#log .result {
+    padding: 1rem 0rem;
+}
+
+.word {
+    font-style: italic;
+}
+
+.morphology {
+    font-weight: bold;
+}
+
